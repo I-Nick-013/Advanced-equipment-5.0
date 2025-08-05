@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="先进装备" modversion="5.0" corepackage="False" steamworkshopid="2903398147" gameversion="1.9.8.0">
+  <Afflictions file="%ModDir%/Afflictions.xml" />
+  <Item file="%ModDir%/nanometerequipment.xml" />
+  <Text file="%ModDir%/chinese.xml" />
+  <Text file="%ModDir%/english.xml" />
+</contentpackage>

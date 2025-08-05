@@ -1,0 +1,848 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--    -->
+  <Item name="" identifier="nanomechanicaltank" category="Medical,Material" maxstacksize="16" cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3,monsterfood,crowbar,crowbaritem" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" secondary="medcontainer" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,768,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="315,452,30,57" depth="0.6" origin="0.5,0.5" />
+    <Body width="30" height="55" density="20" />
+    <Price baseprice="5000" minavailable="1" maxavailable="12">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false" amount="4">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredSkill identifier="medical" level="75" />
+      <RequiredItem identifier="huskeggs" amount="4" />
+      <RequiredItem identifier="fpgacircuit" amount="2" />
+      <RequiredItem identifier="geneticmaterial_unresearched" />
+      <RequiredItem identifier="dementonite" amount="2" />
+      <RequiredItem identifier="ethanol" amount="4" />
+    </Fabricate>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimable="false" aimpos="25,-20" handle1="5,0" holdangle="-45" swingamount="0,3" swingspeed="0.5" swingwhenaiming="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnUse" target="This, Limb" duration="60">
+        <ReduceAffliction identifier="damage" amount="25" />
+        <ReduceAffliction identifier="burn" amount="10" />
+        <ReduceAffliction identifier="bleeding" amount="5" />
+        <ReduceAffliction identifier="bloodloss" amount="1" />
+        <ReduceAffliction identifier="stun" amount="10" />
+        <ReduceAffliction identifier="emp" amount="1" />
+        <ReduceAffliction identifier="pressure" amount="1" />
+        <ReduceAffliction identifier="gaze" amount="1" />
+        <ReduceAffliction identifier="hallucinating" amount="1" />
+        <ReduceAffliction identifier="hallucinatingshortduration" amount="1" />
+        <ReduceAffliction identifier="oxygenlow" amount="1" />
+        <ReduceAffliction identifier="alieninfection" amount="5" />
+        <ReduceAffliction identifier="paralysis" amount="5" />
+        <ReduceAffliction identifier="poison" amount="10" />
+        <ReduceAffliction identifier="debuff" amount="25" />
+        <ReduceAffliction identifier="psychosis" amount="1" />
+        <ReduceAffliction identifier="nausea" amount="1" />
+        <ReduceAffliction identifier="slow" amount="1" />
+        <ReduceAffliction identifier="spaceherpes" amount="1" />
+        <ReduceAffliction identifier="respawnpenalty" amount="1" />
+        <ReduceAffliction identifier="invertcontrols" amount="1" />
+        <ReduceAffliction identifier="infection" amount="1" />
+        <ReduceAffliction identifier="none" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <GiveSkill skillidentifier="electrical" amount="1" />
+        <GiveSkill skillidentifier="mechanical" amount="1" />
+        <GiveSkill skillidentifier="medical" amount="1" />
+        <GiveSkill skillidentifier="weapons" amount="1" />
+        <GiveSkill skillidentifier="helm" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="advancednanoarmor" category="Diving,Equipment" tags="smallitem,diving,deepdiving,divinggear_wearableindoors,provocative" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+    <PreferredContainer primary="armcab" />
+    <Price baseprice="125000" maxavailable="2">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="200" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="80" />
+      <RequiredSkill identifier="mechanical" level="80" />
+      <RequiredSkill identifier="medical" level="80" />
+      <RequiredItem identifier="nanomechanicaltank" amount="4" />
+      <RequiredItem identifier="fulguriumfuelrodvolatile" />
+      <RequiredItem identifier="fpgacircuit" amount="2" />
+      <RequiredItem identifier="endwormshell" />
+      <RequiredItem identifier="ballisticfiber" amount="5" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" amount="4" />
+      <Item identifier="scrap" amount="16" />
+    </Deconstruct>
+    <ContainedSprite name="Suit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="Content/Items/Containers/containers.png" sourcerect="118,379,77,214" depth="0.55" origin="-0.12,-0.13" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="320,640,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Map/Pirates/PirateEquip.png" sourcerect="14,45,103,158" depth="0.6" origin="0.5,0.4" />
+    <Body radius="45" height="35" density="30" />
+    <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnWearing" target="Character" disabledeltatime="true">
+        <Affliction identifier="Muscleenhancer" strength="500" />
+        <Affliction identifier="combatstimulant" strength="500" />
+        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" />
+        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" />
+      </StatusEffect>
+      <sprite name="Suit Vest Wearable" texture="%ModDir%/00000.png" limb="Torso" hidelimb="false" inherittexturescale="true" hideotherwearables="false" inheritorigin="true" inheritsourcerect="true" />
+    </Wearable>
+    <AiTarget soundrange="50000" sonarlabel="entityname.advancednanoarmor" sight="1000" staticsight="true" />
+    <LightComponent LightColor="0,0,0,0" range="50" castshadows="false" IsOn="false" canbeselected="false" vulnerabletoEMP="false">
+      <StatusEffect type="OnWearing" targettype="This" SoundRange="50000" setvalue="true" />
+    </LightComponent>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="integratedfacearmour" scale="0.5" category="Diving,Equipment" tags="smallitem,clothing,clownmask" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="divingcab" />
+    <Price baseprice="15000" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="90" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredSkill identifier="medical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" amount="2" />
+      <RequiredItem identifier="fulguriumfuelrodvolatile" />
+      <RequiredItem identifier="fpgacircuit" amount="5" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="515,322,57,62" origin="0.5,0.5" />
+    <Sprite name="Mask" texture="Content/Items/Jobgear/headgears.png" depth="0.55" sourcerect="226,326,69,68" origin="0.5,0.5" />
+    <Body width="40" height="35" density="15" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Mask Wearable" texture="%ModDir%/00000.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" hidelimb="false" hideotherwearables="false">
+        <LightComponent range="1000" lightcolor="250,250,250,250" IsOn="false" allowingameediting="false" vulnerabletoEMP="false">
+          <StatusEffect type="OnWearing" target="This" setvalue="true">
+            <Conditional IsDead="false" />
+          </StatusEffect>
+          <LightTexture texture="Content/Lights/divinghelmetlight.png" origin="0.05, 0.5" size="10,10" />
+        </LightComponent>
+      </sprite>
+      <StatusEffect type="OnWearing" target="Character" OxygenAvailable="10000" UseHullOxygen="true">
+        <Affliction identifier="neuroenhancer" amount="500" />
+        <Affliction identifier="adrenalinerush" amount="500" />
+      </StatusEffect>
+    </Wearable>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.075,0.075" anchor="BottomLeft" relativeoffset="0.005,0.275" style="ItemUI" />
+      <TickBox text="Visualaid">
+        <StatusEffect type="OnUse" target="This" IsOn="true" setvalue="true" />
+        <StatusEffect type="OnSecondaryUse" target="This" IsOn="false" setvalue="true" />
+      </TickBox>
+    </CustomInterface>
+    <StatusHUD drawhudwhenequipped="true" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="250,150,50,50" range="10000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="50,50,50,50" debugwiring="true" showtexts="false" />
+  </Item>
+  <!--    -->
+  <Item name="" identifier="improveadvancedgenesplicer" scale="0.4" category="Equipment" tags="smallitem,geneticdevice" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" secondary="medcab" />
+    <Price baseprice="15000" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
+      <RequiredSkill identifier="medical" level="60" />
+      <RequiredItem identifier="nanomechanicaltank" />
+      <RequiredItem identifier="advancedgenesplicer" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="fulgurium" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Genetic/Genetic.png" sourcerect="327,62,73,65" origin="0.5,0.5" />
+    <Sprite name="Headset" texture="Content/Items/Genetic/Genetic.png" depth="0.6" sourcerect="148,85,73,35" origin="0.5,0.5" />
+    <Body radius="8" width="48" density="15" />
+    <ItemContainer capacity="4" maxstacksize="1" autoinject="true" autoinjectthreshold="Infinity" allowswappingcontaineditems="false">
+      <Containable items="geneticmaterial" />
+    </ItemContainer>
+    <Wearable limbtype="Head" slots="Any,HealthInterface" msg="ItemMsgPickUpSelect">
+      <sprite name="Gene Splicer Wearable" texture="%ModDir%/00000.png" limb="Head" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" hideotherwearables="false" />
+      <StatusEffect type="OnWearing" target="Character" disabledeltatime="true">
+        <Affliction identifier="Vitalstabilizer" amount="500" />
+      </StatusEffect>
+      <StatValue stattype="ExtraMissionCount" value="5" />
+    </Wearable>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="WirelessHealingHeadset" scale="0.5" category="Equipment,Medical" tags="smallitem,mobileradio" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" />
+    <Price baseprice="15000" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="100" requiresrecipe="false">
+      <RequiredSkill identifier="medical" level="60" />
+      <RequiredItem identifier="nanomechanicaltank" />
+      <RequiredItem identifier="fulguriumfuelrodvolatile" />
+      <RequiredItem identifier="autoinjectorheadset" />
+      <RequiredItem identifier="fpgacircuit" amount="3" />
+      <RequiredItem identifier="dementonite" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="113,264,58,45" origin="0.5,0.5" />
+    <Sprite name="Headset" texture="Content/Items/JobGear/TalentGear.png" depth="0.6" sourcerect="253,301,76,64" origin="0.35,0.5" />
+    <Body radius="20" height="20" density="15" />
+    <WifiComponent range="2000000000" LinkToChat="true" allowcrossteamcommunication="true" />
+    <Wearable limbtype="Head" slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="Headset Wearable" texture="%ModDir%/00000.png" limb="Head" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" hideotherwearables="false" />
+      <StatusEffect type="OnWearing" target="Character" disabledeltatime="true">
+        <Affliction identifier="stabilozineeffect" amount="500" />
+        <Affliction identifier="Regenerationenhancer" amount="500" />
+      </StatusEffect>
+    </Wearable>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="thedimensionaltoolbelt" category="Equipment" tags="mediumitem,mobilecontainer,artifactcontainer,tool" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <PreferredContainer primary="engcab" />
+    <Price baseprice="12500" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="120" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" />
+      <RequiredItem identifier="shapedchargecell" amount="2" />
+      <RequiredItem identifier="metalcrate" />
+      <RequiredItem identifier="plastic" amount="5" />
+      <RequiredItem identifier="organicfiber" amount="5" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" />
+      <Item identifier="scrap" amount="8" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,256,64,64" origin="0.5,0.6" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="314,1,94,74" origin="0.5,0.5" depth="0.6" />
+    <Body width="90" height="60" density="20" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6">
+      <Wearable slots="Bag" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="Always" target="Contained" Condition="1.0" />
+        <sprite name="Tool Belt" texture="%ModDir%/00000.png" sourcerect="256,102,112,54" limb="Torso" hidelimb="false" inherittexturescale="true" hideotherwearables="false" inheritorigin="true" inheritsourcerect="true" />
+      </Wearable>
+      <Attack structuredamage="0" itemdamage="0" targetimpulse="2">
+        <Affliction identifier="stun" strength="10" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <ItemContainer capacity="56" maxstacksize="32">
+      <Containable items="crate,duffelbag,smallitem,mediumitem,bigitem,railgunshell,nuclearshell,railgunammo,ammobox,coilgunammo,depthchargeammo,diving,deepdiving,alienartifact" />
+    </ItemContainer>
+    <Controller UserPos="0,-20" direction="Right" canbeselected="true" AllowSelectingWhenSelectedByOther="true" selectkey="Use" drawuserbehind="true" forceusertostayattached="true" msg="itemmsggoinside">
+      <limbposition limb="Head" position="75,-50" />
+      <limbposition limb="Torso" position="75,-50" />
+      <limbposition limb="Waist" position="75,-50" />
+      <limbposition limb="LeftHand" position="75,-50" />
+      <limbposition limb="RightHand" position="75,-50" />
+      <limbposition limb="RightLeg" position="75,-50" />
+      <limbposition limb="LeftLeg" position="75,-50" />
+      <limbposition limb="RightFoot" position="75,-50" />
+      <limbposition limb="LeftFoot" position="75,-50" />
+      <StatusEffect type="OnActive" targettype="Character" delay="0.25" stackable="true" indetectable="true" DisableFocusingOnEntities="true" invisibletimer="0.1" IgnoreMeleeWeapons="true" PressureProtection="10000" setvalue="true" />
+    </Controller>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="multipurposetoolknife" category="Equipment" Tags="smallitem,tool,screwdriver,screwdriveritem,wrench,wrenchitem,crowbar,crowbaritem,mountableweapon" inventoryiconcolor="255,125,0,125" spritecolor="255,125,0,125" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="engcab" secondary="secarmcab" />
+    <Price baseprice="12500" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="dementonite" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="paralyzant" amount="5" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,225,130,30" depth="0.55" origin="0.5,0.5" />
+    <Body width="120" height="20" density="30" />
+    <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" holdangle="60" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
+      <Attack targetimpulse="5" severlimbsprobability="500" itemdamage="10000" structuredamage="10000">
+        <Affliction identifier="stun" strength="50" />
+        <Affliction identifier="paralysis" strength="10" />
+        <Affliction identifier="drunknodebuffs" strength="100" />
+        <Affliction identifier="hallucinatingshortduration" strength="500" />
+        <StatusEffect type="OnUse" target="Character">
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="100" soundrange="500" fadeouttime="1" />
+  </Item>
+  <!--    -->
+  <Item name="" identifier="improvedplasmacutter" category="Equipment" Tags="smallitem,plasmacutter,cuttingequipment,tool,mountableweapon" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="divingcab" secondary="engcab" />
+    <Price baseprice="12500" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="120" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" />
+      <RequiredItem identifier="plasmacutter" />
+      <RequiredItem identifier="dementonite" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="0,166,159,87" depth="0.55" origin="0.5,0.5" />
+    <Body radius="40" width="60" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="60,0" handle1="-60,-21" handle2="-21,-20" msg="ItemMsgPickUpSelect" />
+    <RepairTool firedamage="100" structurefixamount="-50" range="150" barrelpos="55,10" combatpriority="10" repairmultiple="true" repairthroughwalls="false" maxoverlappingwalldist="0.0" repairthroughholes="true" levelwallfixamount="-10" targetforce="10">
+      <RequiredItems items="oxygensource,weldingtoolfuel" type="Contained" msg="ItemMsgOxygenTankRequired" />
+      <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" Condition="-0.1" />
+      <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" Condition="-0.05" />
+      <StatusEffect type="OnUse" targettype="UseTarget" targets="door,ductblock,aliendoor" Stuck="-25.0" Condition="-10.0" />
+      <StatusEffect type="OnUse" targettype="UseTarget" Condition="-10.0" />
+      <StatusEffect type="OnUse" targettype="Limb" severlimbsprobability="1">
+        <Affliction identifier="acidburn" strength="5" />
+        <Affliction identifier="acidreaction" strength="5" />
+        <Affliction identifier="bleedingnonstop" strength="2.5" />
+        <Affliction identifier="radiationsickness" strength="1" />
+        <Affliction identifier="drunk" strength="5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" targettype="Contained" targets="weldingfueltank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <Explosion range="250.0" force="25" applyfireeffects="false">
+          <Affliction identifier="huskinfection" strength="10" />
+          <Affliction identifier="oxygenlow" strength="25" />
+          <Affliction identifier="psychosis" strength="50" />
+          <Affliction identifier="nausea" strength="50" />
+          <Affliction identifier="drunk" strength="50" />
+          <Affliction identifier="stun" strength="50" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnUse" targettype="Contained" targets="incendiumfueltank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <Explosion range="250.0" ballastfloradamage="100" force="50" applyfireeffects="true" ignorefireeffectsfortags="incendiumfueltank">
+          <Affliction identifier="huskinfection" strength="50" />
+          <Affliction identifier="oxygenlow" strength="50" />
+          <Affliction identifier="psychosis" strength="100" />
+          <Affliction identifier="nausea" strength="100" />
+          <Affliction identifier="drunk" strength="100" />
+          <Affliction identifier="stun" strength="100" />
+        </Explosion>
+      </StatusEffect>
+      <ParticleEmitter particle="plasma" particlespersecond="50" copyentityangle="true" />
+      <ParticleEmitterHitStructure particle="plasmaspark" particlespersecond="100" anglemin="-40" anglemax="40" velocitymin="100" velocitymax="800" />
+      <ParticleEmitterHitStructure particle="plasmasmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="plasmaspark" particlespersecond="100" anglemin="-40" anglemax="40" velocitymin="100" velocitymax="800" />
+      <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="plasmasmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
+      <ParticleEmitterHitItem identifiers="ore" particle="iceshards" particlespersecond="5" anglemin="-40" anglemax="40" velocitymin="10" velocitymax="300" scalemin="0.5" scalemax="1.0" />
+      <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
+      <sound file="Content/Items/Tools/PlasmaCutterLoop.ogg" type="OnUse" range="500.0" loop="true" />
+      <Fixable identifier="structure" />
+      <LightComponent LightColor="200,175,255,255" Flicker="0.5" vulnerabletoEMP="false">
+        <sprite texture="Content/Items/Electricity/lightsprite.png" origin="0.5,0.5" />
+      </LightComponent>
+    </RepairTool>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="0,-39" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+      <Containable items="weldingtoolfuel,oxygensource" />
+    </ItemContainer>
+    <aitarget sightrange="250" soundrange="500" fadeouttime="3" />
+    <RepairTool>
+      <RequiredItems identifier="oxygensource,weldingtoolfuel" type="Contained" msg="ItemMsgOxygenTankRequired" />
+    </RepairTool>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="improvedweldingtool" category="Equipment" Tags="smallitem,weldingtool,weldingequipment,tool,mountableweapon" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="engcab" />
+    <Price baseprice="12500" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="120" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" />
+      <RequiredItem identifier="weldingtool" />
+      <RequiredItem identifier="dementonite" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="0,3,152,88" depth="0.55" origin="0.5,0.5" />
+    <Body width="150" height="60" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="60,0" handle1="-62,-16" handle2="-10,-6" msg="ItemMsgPickUpSelect" />
+    <RepairTool firedamage="100.0" structurefixamount="50.0" range="150" barrelpos="35,10" particles="weld" repairmultiple="true" repairthroughwalls="false" combatpriority="10" levelwallfixamount="-1" targetforce="10">
+      <RequiredItems items="weldingtoolfuel,oxygensource" type="Contained" msg="ItemMsgWeldingFuelRequired" />
+      <ParticleEmitter particle="weld" particlespersecond="50" copyentityangle="true" />
+      <ParticleEmitterHitStructure particle="weldspark" particlespersecond="200" anglemin="-40" anglemax="40" velocitymin="200" velocitymax="800" />
+      <ParticleEmitterHitStructure particle="GlowDot" particlespersecond="60" emitinterval="0.7" particleamount="10" scalemin="0.9" scalemax="1.0" anglemin="0" anglemax="360" velocitymin="10" velocitymax="50" />
+      <ParticleEmitterHitStructure particle="MistSmoke" particlespersecond="20" anglemin="-10" anglemax="10" velocitymin="0" velocitymax="50" />
+      <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="weldspark" particlespersecond="200" anglemin="-40" anglemax="40" velocitymin="200" velocitymax="800" />
+      <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="MistSmoke" particlespersecond="20" anglemin="-10" anglemax="10" velocitymin="10" velocitymax="100" />
+      <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
+      <sound file="Content/Items/Tools/WeldingLoop.ogg" type="OnUse" range="500.0" loop="true" />
+      <StatusEffect type="OnUse" targettype="Contained" targets="weldingfueltank" Condition="-0.1" />
+      <StatusEffect type="OnUse" targettype="Contained" targets="incendiumfueltank" Condition="-0.05" />
+      <StatusEffect type="OnUse" targettype="UseTarget" targets="door,ductblock" Stuck="25.0" Condition="10.0" />
+      <StatusEffect type="OnUse" targettype="Limb">
+        <ReduceAffliction identifier="burn" amount="5" />
+        <ReduceAffliction identifier="acidburn" amount="2.5" />
+        <ReduceAffliction identifier="bleeding" amount="5" />
+        <ReduceAffliction identifier="bitewounds" amount="5" />
+        <ReduceAffliction identifier="lacerations" amount="5" />
+        <ReduceAffliction identifier="gunshotwound" amount="5" />
+        <Affliction identifier="psychosis" strength="5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" targettype="UseTarget" Condition="-5.0" />
+      <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <Explosion range="250.0" force="25" applyfireeffects="false">
+          <Affliction identifier="huskinfection" strength="10" />
+          <Affliction identifier="oxygenlow" strength="25" />
+          <Affliction identifier="psychosis" strength="50" />
+          <Affliction identifier="nausea" strength="50" />
+          <Affliction identifier="drunk" strength="50" />
+          <Affliction identifier="stun" strength="50" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <Explosion range="250.0" force="50" applyfireeffects="false">
+          <Affliction identifier="huskinfection" strength="50" />
+          <Affliction identifier="oxygenlow" strength="50" />
+          <Affliction identifier="psychosis" strength="100" />
+          <Affliction identifier="nausea" strength="100" />
+          <Affliction identifier="drunk" strength="100" />
+          <Affliction identifier="stun" strength="100" />
+        </Explosion>
+      </StatusEffect>
+      <Fixable identifier="structure" />
+      <NonFixable identifier="thalamus,ice" />
+      <LightComponent LightColor="255,225,175,255" Flicker="0.5" vulnerabletoEMP="false">
+        <sprite texture="Content/Items/Electricity/lightsprite.png" origin="0.5,0.5" />
+      </LightComponent>
+    </RepairTool>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="8,-35" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+      <Containable items="weldingtoolfuel,oxygensource" />
+    </ItemContainer>
+    <aitarget sightrange="250" soundrange="500" fadeouttime="3" />
+    <RepairTool>
+      <RequiredItems items="weldingtoolfuel,oxygensource" type="Contained" msg="ItemMsgWeldingFuelRequired" />
+    </RepairTool>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="shapedchargeammunition" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="40" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" damagedoors="true" sticktocharacters="true" sticktoitems="true" sticktostructures="true" penetration="50000" maxtargetstohit="2000000000">
+      <ParticleEmitter particle="tracernucleargun" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1,1" colormultiplier="255,200,200,200" />
+      <Attack structuredamage="500" itemdamage="500" severlimbsprobability="10" penetration="500" targetforce="0">
+        <Affliction identifier="stun" strength="50" />
+        <Affliction identifier="lacerations" strength="100" />
+        <Affliction identifier="explosiondamage" strength="100" />
+        <Affliction identifier="slow" strength="500" />
+        <Affliction identifier="bleeding" strength="500" />
+        <Affliction identifier="gunshotwound" strength="500" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true">
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2500" scalemin="1.0" scalemax="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" disabledeltatime="true">
+        <Explosion range="10" structuredamage="1000" itemdamage="500" ballastfloradamage="500" force="50.0" severlimbsprobability="50" decal="explosion" decalsize="1.0" camerashake="10" camerashakerange="10" flashrange="10" flashduration="1" screencolor="255,200,200,200" screencolorrange="10" screencolorduration="5.0" penetration="100">
+          <Affliction identifier="stun" strength="50" />
+          <Affliction identifier="blunttrauma" strength="100" />
+          <Affliction identifier="internaldamage" strength="100" />
+          <Affliction identifier="radiationsickness" strength="100" />
+          <Affliction identifier="burn" strength="250" />
+          <Affliction identifier="explosiondamage" strength="250" />
+          <Affliction identifier="invertcontrols" strength="500" />
+        </Explosion>
+        <Explosion range="10" force="0.0" smoke="false" sparks="false" empstrength="100" applyfireeffects="false" ignorecover="true">
+          <Affliction identifier="emp" strength="500" multiplybymaxvitality="true" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="shapedchargecell" maxstacksize="5" scale="0.5" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,chargecell,loadable,flakcannonammo" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="advancedpolymergun,improvedancientweapon,flakcannonammoloader" />
+    <PreferredContainer primary="secarmcab" secondary="armcab" />
+    <Price baseprice="10000" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" />
+      <RequiredItem identifier="fpgacircuit" amount="4" />
+      <RequiredItem identifier="fulgurium" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1952,34,77" depth="0.7" origin="0.5,0.5" />
+    <LightComponent AllowInGameEditing="false" lightcolor="150,150,175,25" canbeselected="false" range="100.0" IsOn="true" castshadows="false" vulnerabletoEMP="false" />
+    <Body radius="15" height="40" density="20" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="shapedchargeammunition" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="battery">
+      <Containable items="shapedchargeammunition" />
+      <StatusEffect type="OnUse" target="This" condition="-10.0" disabledeltatime="true">
+        <SpawnItem identifiers="shapedchargeammunition" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--    -->
+  <Item name="" identifier="advancedpolymergun" category="Weapon" cargocontaineridentifier="metalcrate" allowasextracargo="true" tags="smallitem,weapon,gun,pistolitem,mountableweapon" Scale="0.25" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" />
+    <Price baseprice="25000" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="250" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="80" />
+      <RequiredSkill identifier="mechanical" level="80" />
+      <RequiredItem identifier="nanomechanicaltank" amount="4" />
+      <RequiredItem identifier="alienpowercell" />
+      <RequiredItem identifier="dementonite" amount="5" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" amount="4" />
+      <Item identifier="scrap" amount="8" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Supernova.png" sourcerect="0,0,750,250" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Supernova.png" sourcerect="0,0,750,250" depth="0.25" origin="0.5,0.5" />
+    <Body width="500" height="150" density="50" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,-25" aimpos="50,-25" handle1="-210,-45" handle2="50,-25" holdangle="-20" msg="ItemMsgPickUpSelect" >
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+    </Holdable>
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Supernova" texture="%ModDir%/Supernova.png" canbehiddenbyotherwearables="false" sourcerect="0,0,750,250" rotation="90" inheritlimbdepth="false" depth="0.75" limb="Torso" scale="0.25" origin="0.5,0.75" />
+    </Wearable>
+    <RangedWeapon reload="1" launchimpulse="1000" holdtrigger="true" barrelpos="350,5" spread="0" unskilledspread="10" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.25" penetration="10" maxchargetime="1">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="FlareBubbles" scalemin="1.5" scalemax="2.0" particleamount="15" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
+      <ParticleEmitter particle="GlowDot" scalemin="5.0" scalemax="5.0" particleamount="20" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" colormultiplier="25,225,200,255" />
+      <ParticleEmitterCharge particle="chargenucleargun" particlespersecond="60" scalemultiplier="1,1" scalemin="1.0" scalemax="1.0" anglemin="0" anglemax="360" />
+      <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator.ogg" type="OnUse" range="5000" selectionmode="Random" />
+      <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator2.ogg" type="OnUse" range="5000" />
+      <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator3.ogg" type="OnUse" range="5000" />
+      <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator4.ogg" type="OnUse" range="5000" />
+      <ChargeSound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAcceleratorStartLoop.ogg" range="5000" />
+      <StatusEffect target="This" type="OnUse">
+        <Explosion range="150.0" force="100" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="25.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 100" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 95" />
+        <Affliction identifier="incrementalstun" strength="10" />
+        <Affliction identifier="stun" strength="1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="shapedchargecell" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="10" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet">
+      <Containable items="shapedchargecell" />
+    </ItemContainer>
+    <aitarget sightrange="500" soundrange="10000" fadeouttime="5" />
+  </Item>
+  <!--    -->
+  <Item name="" identifier="improvedancientweapon" category="Alien,Weapon" Tags="alien,smallitem,weldingequipment,cuttingequipment,tool,weapon,mountableweapon" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="engcab" secondary="divingcab" />
+    <Price baseprice="25000">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="250" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="50" />
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="nanomechanicaltank" amount="2" />
+      <RequiredItem identifier="ancientweapon" />
+      <RequiredItem identifier="dementonite" amount="5" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="fpgacircuit" amount="5" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="8" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1875,104,58" />
+    <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1875,104,58" depth="0.55" />
+    <Body radius="15" width="15" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" aimpos="90,10" handle1="-5,-10" handle2="-5,-10" msg="ItemMsgPickUpSelect" />
+    <RepairTool firedamage="100" structurefixamount="500" range="500" barrelpos="75,0" targetforce="50" repairmultiple="true" repairthroughwalls="true" particles="weld" levelwallfixamount="-10" combatpriority="10">
+      <RequiredItems items="shapedchargecell" type="Contained" />
+      <StatusEffect type="OnUse" targettype="Contained" targets="shapedchargecell" Condition="-0.5" />
+      <StatusEffect type="OnUse" targettype="UseTarget" targets="door,ductblock" Stuck="10.0" Condition="10" />
+      <StatusEffect type="OnUse" targettype="UseTarget" Condition="-10" />
+      <ParticleEmitter particle="largeplasma" particlespersecond="50" copyentityangle="true" />
+      <ParticleEmitterHitStructure particle="plasmaspark" particlespersecond="100" anglemin="-40" anglemax="40" velocitymin="100" velocitymax="800" />
+      <ParticleEmitterHitStructure particle="plasmasmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="plasmaspark" particlespersecond="100" anglemin="-40" anglemax="40" velocitymin="100" velocitymax="800" />
+      <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="plasmasmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
+      <ParticleEmitterHitItem identifiers="ore" particle="iceshards" particlespersecond="5" anglemin="-40" anglemax="40" velocitymin="10" velocitymax="300" scalemin="0.5" scalemax="1.0" />
+      <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
+      <StatusEffect type="OnUse" targettype="Limb" severlimbsprobability="1">
+        <ReduceAffliction identifier="burn" amount="5" />
+        <ReduceAffliction identifier="bleeding" amount="5" />
+        <ReduceAffliction identifier="bitewounds" amount="5" />
+        <ReduceAffliction identifier="lacerations" amount="5" />
+        <ReduceAffliction identifier="gunshotwound" amount="5" />
+        <Affliction identifier="psychosis" strength="5" />
+      </StatusEffect>
+      <Fixable identifier="structure" />
+      <sound file="Content/Items/Alien/alienweapon.ogg" type="OnUse" range="1000.0" loop="true" />
+      <LightComponent LightColor="100,150,200,255" Flicker="0.5" range="500" vulnerabletoEMP="false">
+        <sprite texture="Content/Items/Electricity/lightsprite.png" origin="0,0.5" />
+      </LightComponent>
+    </RepairTool>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" itempos="9,-15" containedstateindicatorstyle="battery">
+      <Containable items="shapedchargecell" />
+    </ItemContainer>
+  </Item>
+  <Item name="" identifier="husksymbiosisextract" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" RequireAimToUse="True" HitOnlyCharacters="true">
+    <PreferredContainer primary="medcab" />
+    <Price baseprice="50000">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+      <Price storeidentifier="merchanthusk" minavailable="1" maxavailable="5">
+        <Reputation faction="huskcult" min="100" />
+      </Price>
+    </Price>
+    <Deconstruct time="50">
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="huskeggs" amount="3" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,448,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="0,186,38,70" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="70" density="20" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true" />
+      <StatusEffect type="OnSuccess" target="UseTarget" duration="60.0">
+        <Conditional huskinfection="lt 0.01" />
+        <Affliction identifier="husksymbiosis" amount="100" />
+      </StatusEffect>
+      <StatusEffect type="OnSuccess" target="UseTarget">
+        <Conditional entitytype="eq Character" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!--    -->
+  <Item name="" identifier="nanomechanicaltransplanter" scale="0.4" category="Medical,Equipment" tags="smallitem,geneticdevice,idcard,id_captain,id_engineer,id_mechanic,id_security,id_medic,id_assistant,wreck_id,wreck_admin,wreck_captain,wreck_engineer,wreck_mechanic,wreck_security,wreck_medic,id_outpostmanager,id_outpostsecurity,id_reactor,id_pirate,abandonedsecarmcab" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" secondary="medcab" />
+    <Price baseprice="50000">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="100" />
+      <RequiredSkill identifier="mechanical" level="100" />
+      <RequiredSkill identifier="medical" level="100" />
+      <RequiredItem identifier="shapedchargecell" />
+      <RequiredItem identifier="improveadvancedgenesplicer" />
+      <RequiredItem identifier="advancednanoarmor" />
+      <RequiredItem identifier="integratedfacearmour" />
+      <RequiredItem identifier="WirelessHealingHeadset" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="shapedchargecell" />
+      <Item identifier="improveadvancedgenesplicer" />
+      <Item identifier="advancednanoarmor" />
+      <Item identifier="integratedfacearmour" />
+      <Item identifier="WirelessHealingHeadset" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Genetic/Genetic.png" sourcerect="327,62,73,65" origin="0.5,0.5" />
+    <Sprite name="Headset" texture="Content/Items/Genetic/Genetic.png" depth="0.6" sourcerect="148,85,73,35" origin="0.5,0.5" />
+    <Body radius="8" width="48" density="15" />
+    <Wearable limbtype="Head" slots="Any,HealthInterface" msg="ItemMsgPickUpSelect">
+      <WifiComponent range="2000000000" LinkToChat="true" allowcrossteamcommunication="true" />
+      <sprite name="Gene Splicer Wearable" texture="%ModDir%/00000.png" limb="Head" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" hideotherwearables="false">
+        <LightComponent LightColor="100,175,255,255" range="2500" castshadows="false" powerconsumption="1000000000" IsOn="true" vulnerabletoEMP="false" />
+      </sprite>
+      <StatusEffect type="OnWearing" target="Character" disabledeltatime="true">
+        <Affliction identifier="nano.nightvision" amount="50" />
+        <Conditional targetcontainer="true" targetitemcomponent="LightComponent" IsOn="true" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="This,Character" voltage="1.0" setvalue="true">
+        <Conditional IsLocalPlayer="true" nano.nightvision="gt 0" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Character" disabledeltatime="true">
+        <Affliction identifier="thepowerofnano" strength="100" />
+      </StatusEffect>
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+        <GuiFrame relativesize="0.075,0.075" anchor="BottomLeft" relativeoffset="0.005,0.275" style="ItemUI" />
+        <TickBox text="Visualaid">
+          <StatusEffect type="OnUse" target="This" IsOn="true" setvalue="true" />
+          <StatusEffect type="OnSecondaryUse" target="This" IsOn="false" setvalue="true" />
+        </TickBox>
+      </CustomInterface>
+    </Wearable>
+    <AiTarget soundrange="10000" sonarlabel=" " sight="500" staticsight="true" />
+    <LightComponent LightColor="0,0,0,0" range="50" castshadows="false" IsOn="false" canbeselected="false" vulnerabletoEMP="false">
+      <StatusEffect type="OnWearing" targettype="This" SoundRange="50000" setvalue="true" />
+    </LightComponent>
+    <StatusHUD drawhudwhenequipped="true" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="250,150,50,50" range="10000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="50,50,50,50" debugwiring="true" showtexts="false" />
+  </Item>
+  <!--    -->
+  <Item name="" identifier="environmentalscanner" category="Equipment,Diving" Tags="smallitem,sonar,provocative,idcard,id_captain,id_engineer,id_mechanic,id_security,id_medic,id_assistant,wreck_id,wreck_admin,wreck_captain,wreck_engineer,wreck_mechanic,wreck_security,wreck_medic,id_outpostmanager,id_outpostsecurity,id_reactor,id_pirate,abandonedsecarmcab" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="divingcab" />
+    <Price baseprice="12500" maxavailable="5">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="90" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" amount="2" />
+      <RequiredItem identifier="fulguriumfuelrodvolatile" />
+      <RequiredItem identifier="fpgacircuit" amount="3" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Deconstruct time="100">
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="128,960,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="231,102,25,54" depth="0.55" origin="0.5,0.5" />
+    <Body width="23" height="50" density="12" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="0,-15" />
+    <Wearable slots="Bag" msg="ItemMsgPickUpSelect">
+      <sprite name="Belt" texture="%ModDir%/00000.png" sourcerect="256,102,112,54" limb="Torso" hidelimb="false" inherittexturescale="true" hideotherwearables="false" inheritorigin="true" inheritsourcerect="true" />
+    </Wearable>
+    <AiTarget sight="250" staticsight="true" />
+    <Sonar range="50000.0" drawhudwhenequipped="true" hasmineralscanner="true" allowuioverlap="true" vulnerabletoEMP="false">
+      <GuiFrame relativesize="0.275,0.5" anchor="BottomCenter" absoluteoffset="-250,100" />
+      <PingCircle texture="Content/Items/Command/pingCircle.png" origin="0.5,0.5" />
+      <DirectionalPingCircle texture="Content/Items/Command/directionalPingCircle.png" origin="0.0,0.5" />
+      <ScreenOverlay texture="Content/Items/Command/sonarOverlay.png" origin="0.5,0.5" />
+      <ScreenBackground texture="Content/Items/Command/sonarBackground.png" origin="0.5,0.5" />
+      <DirectionalPingBackground texture="Content/Items/Command/directionalPingBackground.png" origin="0.5,0.5" />
+      <DirectionalPingButton index="0" texture="Content/Items/Command/directionalPingButton.png" sourcerect="0,0,91,266" origin="-4.5275,0.5" />
+      <DirectionalPingButton index="1" texture="Content/Items/Command/directionalPingButton.png" sourcerect="133,0,91,266" origin="-4.5275,0.5" />
+      <DirectionalPingButton index="2" texture="Content/Items/Command/directionalPingButton.png" sourcerect="266,0,91,266" origin="-4.5275,0.5" />
+      <Blip texture="Content/Items/Command/sonarBlip.png" origin="0.5,0.5" />
+      <LineSprite texture="Content/Items/Command/NavUI.png" sourcerect="181,141,109,4" origin="0,0.5" />
+      <icon identifier="outpost" texture="Content/UI/MainIconsAtlas.png" sourcerect="352,398,16,8" origin="0.5,0.5" />
+      <icon identifier="submarine" texture="Content/UI/MainIconsAtlas.png" sourcerect="353,407,14,6" origin="0.5,0.5" />
+      <icon identifier="shuttle" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,407,8,6" origin="0.5,0.5" />
+      <icon identifier="artifact" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,414,8,8" origin="0.5,0.5" />
+      <icon identifier="location" texture="Content/UI/MainIconsAtlas.png" sourcerect="349,435,11,11" origin="0.5,0.5" />
+      <icon identifier="mineral" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,434,7,12" origin="0.5,0.5" />
+      <icon identifier="" texture="Content/UI/MainIconsAtlas.png" sourcerect="346,416,4,4" origin="0.5,0.5" />
+    </Sonar>
+    <MiniMap drawhudwhenequipped="true" requirewaterdetectors="false" requireoxygendetectors="false" vulnerabletoEMP="false">
+      <GuiFrame relativesize="0.25,0.275" anchor="TopLeft" style="ItemUI" />
+    </MiniMap>
+  </Item>
+</Items>

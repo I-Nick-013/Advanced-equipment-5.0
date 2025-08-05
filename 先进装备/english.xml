@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="true" translatedname="English">
+  <entityname.nanomechanicaltank>Nanomechanical tank</entityname.nanomechanicaltank>
+  <entitydescription.nanomechanicaltank>A bioengineering technology more suitable for the local environment. Don't confuse its mimicry with ordinary beverages.</entitydescription.nanomechanicaltank>
+  <entityname.advancednanoarmor>Advanced armor</entityname.advancednanoarmor>
+  <entitydescription.advancednanoarmor>Welcome to Advanced Armor MK Ⅲ</entitydescription.advancednanoarmor>
+  <entityname.integratedfacearmour>Integrated face armor</entityname.integratedfacearmour>
+  <entitydescription.integratedfacearmour>It will help you find the optimal solution</entitydescription.integratedfacearmour>
+  <entityname.improveadvancedgenesplicer>Improved gene splicer</entityname.improveadvancedgenesplicer>
+  <entitydescription.improveadvancedgenesplicer>Can give you more help</entitydescription.improveadvancedgenesplicer>
+  <entityname.WirelessHealingHeadset>Wireless therapy headset</entityname.WirelessHealingHeadset>
+  <entitydescription.WirelessHealingHeadset>Maybe help you out with a little trouble</entitydescription.WirelessHealingHeadset>
+  <entityname.thedimensionaltoolbelt>The dimensional tool box</entityname.thedimensionaltoolbelt>
+  <entitydescription.thedimensionaltoolbelt>A little box with a magical function that you can hang around your waist</entitydescription.thedimensionaltoolbelt>
+  <entityname.multipurposetoolknife>"Physics"</entityname.multipurposetoolknife>
+  <entitydescription.multipurposetoolknife>More destruction, less damage</entitydescription.multipurposetoolknife>
+  <entityname.improvedplasmacutter>Improved plasma cutting machine</entityname.improvedplasmacutter>
+  <entitydescription.improvedplasmacutter>Faster, stronger, longer. Yeah~ No problem</entitydescription.improvedplasmacutter>
+  <entityname.improvedweldingtool>Improved welding tool</entityname.improvedweldingtool>
+  <entitydescription.improvedweldingtool>Faster, stronger, longer. Yeah~ No problem</entitydescription.improvedweldingtool>
+  <entityname.shapedchargecell>shaped charge cell</entityname.shapedchargecell>
+  <entitydescription.shapedchargecell>A tiny one with the power to destroy everything around it</entitydescription.shapedchargecell>
+  <entityname.advancedpolymergun>Supernova</entityname.advancedpolymergun>
+  <entitydescription.advancedpolymergun>"光よ——————！！！！"</entitydescription.advancedpolymergun>
+  <entityname.improvedancientweapon>Ancient weapons. Change</entityname.improvedancientweapon>
+  <entitydescription.improvedancientweapon>It's more useful now</entitydescription.improvedancientweapon>
+  <entityname.husksymbiosisextract>Husk Symbiosis Extract</entityname.husksymbiosisextract>
+  <entitydescription.husksymbiosisextract>Could help you out of a little trouble</entitydescription.husksymbiosisextract>
+  <entityname.nanomechanicaltransplanter>Nano biochemical implant</entityname.nanomechanicaltransplanter>
+  <entitydescription.nanomechanicaltransplanter>Have a very safe day</entitydescription.nanomechanicaltransplanter>
+  <entityname.environmentalscanner>Environmental scanner</entityname.environmentalscanner>
+  <entitydescription.environmentalscanner>It projects information in front of your eyes, whether you're holding it or hanging it on your waist</entitydescription.environmentalscanner>
+  <Afflictionname.thepowerofnano>Nano Force</Afflictionname.thepowerofnano>
+  <Afflictiondescription.thepowerofnano>Nanomachines, son!</Afflictiondescription.thepowerofnano>
+  <Afflictionname.Muscleenhancer>Muscles Strengthening Agents</Afflictionname.Muscleenhancer>
+  <Afflictiondescription.Muscleenhancer>Faster, Higher, Stronger</Afflictiondescription.Muscleenhancer>
+  <Afflictionname.neuroenhancer>Nerve Strengthening Agents</Afflictionname.neuroenhancer>
+  <Afflictiondescription.neuroenhancer>Evolution can occur even without brain replacement</Afflictiondescription.neuroenhancer>
+  <Afflictionname.Regenerationenhancer>Regenerative Stimulating Agent</Afflictionname.Regenerationenhancer>
+  <Afflictiondescription.Regenerationenhancer>Accelerate your self-repairing function.</Afflictiondescription.Regenerationenhancer>
+  <Afflictionname.Vitalstabilizer>Vital Stabilizer</Afflictionname.Vitalstabilizer>
+  <Afflictiondescription.Vitalstabilizer>No further functions can be performed due to energy distribution issues, but at least it will protect you in a critical moment</Afflictiondescription.Vitalstabilizer>
+  <Visualaid>Visual aid</Visualaid>
+</infotexts>
