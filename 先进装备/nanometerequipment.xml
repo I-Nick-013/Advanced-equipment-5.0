@@ -135,13 +135,15 @@
     <Body width="40" height="35" density="15" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
       <sprite name="Mask Wearable" texture="%ModDir%/00000.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" hidelimb="false" hideotherwearables="false">
-        <LightComponent range="1000" lightcolor="250,250,250,250" IsOn="false" allowingameediting="false" vulnerabletoEMP="false">
-          <StatusEffect type="OnWearing" target="This" setvalue="true">
-            <Conditional IsDead="false" />
-          </StatusEffect>
-          <LightTexture texture="Content/Lights/divinghelmetlight.png" origin="0.05, 0.5" size="10,10" />
-        </LightComponent>
+        <LightComponent LightColor="100,175,250,250" range="2500" castshadows="false" powerconsumption="1000000000" IsOn="true" vulnerabletoEMP="false" />
       </sprite>
+      <StatusEffect type="OnWearing" target="Character" disabledeltatime="true">
+        <Affliction identifier="nano.nightvision" amount="50" />
+        <Conditional targetcontainer="true" targetitemcomponent="LightComponent" IsOn="true" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="This,Character" voltage="1.0" setvalue="true">
+        <Conditional IsLocalPlayer="true" nano.nightvision="gt 0" />
+      </StatusEffect>
       <StatusEffect type="OnWearing" target="Character" OxygenAvailable="10000" UseHullOxygen="true">
         <Affliction identifier="neuroenhancer" amount="500" />
         <Affliction identifier="adrenalinerush" amount="500" />
@@ -599,7 +601,7 @@
     <InventoryIcon texture="%ModDir%/Supernova.png" sourcerect="0,0,750,250" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Supernova.png" sourcerect="0,0,750,250" depth="0.25" origin="0.5,0.5" />
     <Body width="500" height="150" density="50" />
-    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,-25" aimpos="50,-25" handle1="-210,-45" handle2="50,-25" holdangle="-20" msg="ItemMsgPickUpSelect" >
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,-25" aimpos="50,-25" handle1="-210,-45" handle2="50,-25" holdangle="-20" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.5" setvalue="true" />
       <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.75" setvalue="true" />
     </Holdable>
@@ -611,21 +613,21 @@
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <ParticleEmitter particle="FlareBubbles" scalemin="1.5" scalemax="2.0" particleamount="15" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
       <ParticleEmitter particle="GlowDot" scalemin="5.0" scalemax="5.0" particleamount="20" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" colormultiplier="25,225,200,255" />
-      <ParticleEmitterCharge particle="chargenucleargun" particlespersecond="60" scalemultiplier="1,1" scalemin="1.0" scalemax="1.0" anglemin="0" anglemax="360" />
+      <ParticleEmitterCharge particle="chargenucleargun" particlespersecond="60" scalemultiplier="1,0.1" scalemin="1.0" scalemax="1.0" anglemin="0" anglemax="360" />
       <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator.ogg" type="OnUse" range="5000" selectionmode="Random" />
       <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator2.ogg" type="OnUse" range="5000" />
       <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator3.ogg" type="OnUse" range="5000" />
       <Sound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAccelerator4.ogg" type="OnUse" range="5000" />
       <ChargeSound file="Content/Items/JobGear/Engineer/WEAPONS_rapidFissileAcceleratorStartLoop.ogg" range="5000" />
       <StatusEffect target="This" type="OnUse">
-        <Explosion range="150.0" force="100" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="25.0" />
+        <Explosion range="150.0" force="500" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="25.0" />
       </StatusEffect>
       <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
         <Conditional skillrequirement="true" weapons="lt 100" />
         <Conditional recoilstabilized="lte 0" />
         <Conditional incrementalstun="lte 95" />
-        <Affliction identifier="incrementalstun" strength="10" />
-        <Affliction identifier="stun" strength="1" />
+        <Affliction identifier="incrementalstun" strength="50" />
+        <Affliction identifier="stun" strength="5" />
       </StatusEffect>
       <StatusEffect type="OnUse" target="Contained">
         <Use />
@@ -695,6 +697,7 @@
       <Containable items="shapedchargecell" />
     </ItemContainer>
   </Item>
+  <!--    -->
   <Item name="" identifier="husksymbiosisextract" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" RequireAimToUse="True" HitOnlyCharacters="true">
     <PreferredContainer primary="medcab" />
     <Price baseprice="50000">
@@ -762,7 +765,7 @@
     <Wearable limbtype="Head" slots="Any,HealthInterface" msg="ItemMsgPickUpSelect">
       <WifiComponent range="2000000000" LinkToChat="true" allowcrossteamcommunication="true" />
       <sprite name="Gene Splicer Wearable" texture="%ModDir%/00000.png" limb="Head" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" hideotherwearables="false">
-        <LightComponent LightColor="100,175,255,255" range="2500" castshadows="false" powerconsumption="1000000000" IsOn="true" vulnerabletoEMP="false" />
+        <LightComponent LightColor="100,175,250,250" range="2500" castshadows="false" powerconsumption="1000000000" IsOn="true" vulnerabletoEMP="false" />
       </sprite>
       <StatusEffect type="OnWearing" target="Character" disabledeltatime="true">
         <Affliction identifier="nano.nightvision" amount="50" />
