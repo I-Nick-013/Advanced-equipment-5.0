@@ -1,7 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <!--    -->
-  <Item name="" identifier="nanomechanicaltank" category="Medical,Material" maxstacksize="16" cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3,monsterfood,crowbar,crowbaritem" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+  <!--Item-->
+  <Item name="" identifier="undeadpotion" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="32" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="medcab" secondary="medcontainer"/>
+    <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="50" fabricationlimitmin="16" fabricationlimitmax="32"/>
+    <InventoryIcon texture="Content/Items/Medical/Medicines.png" sourcerect="448,256,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="303,310,35,67" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="65" density="10.2" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+      <StatusEffect statuseffecttags="medical" type="OnUse" target="UseTarget" duration="30">
+        <Affliction identifier="undead" amount="500" /> 
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="UseTarget">
+        <Conditional entitytype="eq Character"/>
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!--Item-->
+  <Item name="" identifier="nanomechanicaltank" category="Medical,Material" maxstacksize="16" maxstacksizecharacterinventory="16" cargocontaineridentifier="mediccrate" description="" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3,monsterfood,crowbar,crowbaritem" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medcab" secondary="medcontainer" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,768,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="315,452,30,57" depth="0.6" origin="0.5,0.5" />
@@ -13,15 +33,20 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false" amount="4">
-      <RequiredSkill identifier="electrical" level="75" />
-      <RequiredSkill identifier="mechanical" level="75" />
-      <RequiredSkill identifier="medical" level="75" />
-      <RequiredItem identifier="huskeggs" amount="4" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false" amount="1">
+      <RequiredSkill identifier="electrical" level="50" />
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredSkill identifier="medical" level="50" />
+      <RequiredItem identifier="huskeggs" />
       <RequiredItem identifier="fpgacircuit" amount="2" />
       <RequiredItem identifier="geneticmaterial_unresearched" />
-      <RequiredItem identifier="dementonite" amount="2" />
+      <RequiredItem identifier="undeadpotion" amount="32" />
       <RequiredItem identifier="ethanol" amount="4" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30"  displayname="cultivation" requiresrecipe="false" amount="4">
+      <RequiredSkill identifier="medical" level="25" />
+      <RequiredItem identifier="diversremains" />
+      <RequiredItem identifier="nanomechanicaltank" />
     </Fabricate>
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimable="false" aimpos="25,-20" handle1="5,0" holdangle="-45" swingamount="0,3" swingspeed="0.5" swingwhenaiming="true" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
@@ -64,7 +89,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="advancednanoarmor" category="Diving,Equipment" tags="smallitem,diving,deepdiving,divinggear_wearableindoors,provocative" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
     <PreferredContainer primary="armcab" />
     <Price baseprice="125000" maxavailable="2">
@@ -74,11 +99,11 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="200" requiresrecipe="false">
-      <RequiredSkill identifier="electrical" level="80" />
-      <RequiredSkill identifier="mechanical" level="80" />
-      <RequiredSkill identifier="medical" level="80" />
-      <RequiredItem identifier="nanomechanicaltank" amount="4" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
+      <RequiredSkill identifier="medical" level="75" />
+      <RequiredItem identifier="nanomechanicaltank" amount="2" />
       <RequiredItem identifier="fulguriumfuelrodvolatile" />
       <RequiredItem identifier="fpgacircuit" amount="2" />
       <RequiredItem identifier="endwormshell" />
@@ -86,7 +111,7 @@
     </Fabricate>
     <Deconstruct time="100">
       <Item identifier="nanomechanicaltank" amount="4" />
-      <Item identifier="scrap" amount="16" />
+      <Item identifier="scrap" amount="8" />
     </Deconstruct>
     <ContainedSprite name="Suit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="Content/Items/Containers/containers.png" sourcerect="118,379,77,214" depth="0.55" origin="-0.12,-0.13" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="320,640,64,64" origin="0.5,0.5" />
@@ -106,7 +131,7 @@
       <StatusEffect type="OnWearing" targettype="This" SoundRange="50000" setvalue="true" />
     </LightComponent>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="integratedfacearmour" scale="0.5" category="Diving,Equipment" tags="smallitem,clothing,clownmask" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="divingcab" />
     <Price baseprice="15000" maxavailable="5">
@@ -116,11 +141,11 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="90" requiresrecipe="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
       <RequiredSkill identifier="electrical" level="75" />
       <RequiredSkill identifier="mechanical" level="75" />
       <RequiredSkill identifier="medical" level="75" />
-      <RequiredItem identifier="nanomechanicaltank" amount="2" />
+      <RequiredItem identifier="nanomechanicaltank" />
       <RequiredItem identifier="fulguriumfuelrodvolatile" />
       <RequiredItem identifier="fpgacircuit" amount="5" />
       <RequiredItem identifier="titaniumaluminiumalloy" />
@@ -128,7 +153,7 @@
     </Fabricate>
     <Deconstruct time="100">
       <Item identifier="nanomechanicaltank" amount="2" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="515,322,57,62" origin="0.5,0.5" />
     <Sprite name="Mask" texture="Content/Items/Jobgear/headgears.png" depth="0.55" sourcerect="226,326,69,68" origin="0.5,0.5" />
@@ -160,7 +185,7 @@
     <StatusHUD drawhudwhenequipped="true" overlaycolor="250,150,50,50" range="10000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
     <StatusHUD drawhudwhenequipped="true" overlaycolor="50,50,50,50" debugwiring="true" showtexts="false" />
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="improveadvancedgenesplicer" scale="0.4" category="Equipment" tags="smallitem,geneticdevice" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medcab" secondary="medcab" />
     <Price baseprice="15000" maxavailable="5">
@@ -170,16 +195,16 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
-      <RequiredSkill identifier="medical" level="60" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
+      <RequiredSkill identifier="medical" level="50" />
       <RequiredItem identifier="nanomechanicaltank" />
       <RequiredItem identifier="advancedgenesplicer" />
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="fulgurium" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/Genetic/Genetic.png" sourcerect="327,62,73,65" origin="0.5,0.5" />
     <Sprite name="Headset" texture="Content/Items/Genetic/Genetic.png" depth="0.6" sourcerect="148,85,73,35" origin="0.5,0.5" />
@@ -195,7 +220,7 @@
       <StatValue stattype="ExtraMissionCount" value="5" />
     </Wearable>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="WirelessHealingHeadset" scale="0.5" category="Equipment,Medical" tags="smallitem,mobileradio" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medcab" />
     <Price baseprice="15000" maxavailable="5">
@@ -205,8 +230,8 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="100" requiresrecipe="false">
-      <RequiredSkill identifier="medical" level="60" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
+      <RequiredSkill identifier="medical" level="50" />
       <RequiredItem identifier="nanomechanicaltank" />
       <RequiredItem identifier="fulguriumfuelrodvolatile" />
       <RequiredItem identifier="autoinjectorheadset" />
@@ -214,8 +239,8 @@
       <RequiredItem identifier="dementonite" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="113,264,58,45" origin="0.5,0.5" />
     <Sprite name="Headset" texture="Content/Items/JobGear/TalentGear.png" depth="0.6" sourcerect="253,301,76,64" origin="0.35,0.5" />
@@ -229,7 +254,7 @@
       </StatusEffect>
     </Wearable>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="thedimensionaltoolbelt" category="Equipment" tags="mediumitem,mobilecontainer,artifactcontainer,tool" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
     <PreferredContainer primary="engcab" />
     <Price baseprice="12500" maxavailable="5">
@@ -239,9 +264,9 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="120" requiresrecipe="false">
-      <RequiredSkill identifier="electrical" level="75" />
-      <RequiredSkill identifier="mechanical" level="75" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="50" />
+      <RequiredSkill identifier="mechanical" level="50" />
       <RequiredItem identifier="nanomechanicaltank" />
       <RequiredItem identifier="shapedchargecell" amount="2" />
       <RequiredItem identifier="metalcrate" />
@@ -249,8 +274,8 @@
       <RequiredItem identifier="organicfiber" amount="5" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" />
-      <Item identifier="scrap" amount="8" />
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="4" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,256,64,64" origin="0.5,0.6" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="314,1,94,74" origin="0.5,0.5" depth="0.6" />
@@ -285,7 +310,7 @@
       <StatusEffect type="OnActive" targettype="Character" delay="0.25" stackable="true" indetectable="true" DisableFocusingOnEntities="true" invisibletimer="0.1" IgnoreMeleeWeapons="true" PressureProtection="10000" setvalue="true" />
     </Controller>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="multipurposetoolknife" category="Equipment" Tags="smallitem,tool,screwdriver,screwdriveritem,wrench,wrenchitem,crowbar,crowbaritem,mountableweapon" inventoryiconcolor="255,125,0,125" spritecolor="255,125,0,125" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <PreferredContainer primary="engcab" secondary="secarmcab" />
     <Price baseprice="12500" maxavailable="5">
@@ -295,7 +320,7 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
       <RequiredSkill identifier="electrical" level="75" />
       <RequiredSkill identifier="mechanical" level="75" />
       <RequiredItem identifier="nanomechanicaltank" />
@@ -305,8 +330,8 @@
       <RequiredItem identifier="paralyzant" amount="5" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,0,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,225,130,30" depth="0.55" origin="0.5,0.5" />
@@ -325,7 +350,7 @@
     </MeleeWeapon>
     <aitarget sightrange="100" soundrange="500" fadeouttime="1" />
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="improvedplasmacutter" category="Equipment" Tags="smallitem,plasmacutter,cuttingequipment,tool,mountableweapon" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="divingcab" secondary="engcab" />
     <Price baseprice="12500" maxavailable="5">
@@ -335,7 +360,7 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="120" requiresrecipe="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
       <RequiredSkill identifier="electrical" level="75" />
       <RequiredSkill identifier="mechanical" level="75" />
       <RequiredItem identifier="nanomechanicaltank" />
@@ -344,8 +369,8 @@
       <RequiredItem identifier="plastic" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,0,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="0,166,159,87" depth="0.55" origin="0.5,0.5" />
@@ -409,7 +434,7 @@
       <RequiredItems identifier="oxygensource,weldingtoolfuel" type="Contained" msg="ItemMsgOxygenTankRequired" />
     </RepairTool>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="improvedweldingtool" category="Equipment" Tags="smallitem,weldingtool,weldingequipment,tool,mountableweapon" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="engcab" />
     <Price baseprice="12500" maxavailable="5">
@@ -419,7 +444,7 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="120" requiresrecipe="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
       <RequiredSkill identifier="electrical" level="75" />
       <RequiredSkill identifier="mechanical" level="75" />
       <RequiredItem identifier="nanomechanicaltank" />
@@ -428,8 +453,8 @@
       <RequiredItem identifier="plastic" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="0,3,152,88" depth="0.55" origin="0.5,0.5" />
@@ -496,7 +521,7 @@
       <RequiredItems items="weldingtoolfuel,oxygensource" type="Contained" msg="ItemMsgWeldingFuelRequired" />
     </RepairTool>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="shapedchargeammunition" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
@@ -542,8 +567,8 @@
       </StatusEffect>
     </Projectile>
   </Item>
-  <!--    -->
-  <Item name="" identifier="shapedchargecell" maxstacksize="5" scale="0.5" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,chargecell,loadable,flakcannonammo" impactsoundtag="impact_metal_light">
+  <!--Item-->
+  <Item name="" identifier="shapedchargecell" maxstacksize="4" scale="0.5" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,chargecell,loadable,flakcannonammo" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="advancedpolymergun,improvedancientweapon,flakcannonammoloader" />
     <PreferredContainer primary="secarmcab" secondary="armcab" />
     <Price baseprice="10000" maxavailable="5">
@@ -553,7 +578,7 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
       <RequiredSkill identifier="electrical" level="75" />
       <RequiredSkill identifier="mechanical" level="75" />
       <RequiredItem identifier="nanomechanicaltank" />
@@ -562,8 +587,8 @@
       <RequiredItem identifier="titaniumaluminiumalloy" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="nanomechanicaltank" amount="2" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1952,34,77" depth="0.7" origin="0.5,0.5" />
     <LightComponent AllowInGameEditing="false" lightcolor="150,150,175,25" canbeselected="false" range="100.0" IsOn="true" castshadows="false" vulnerabletoEMP="false" />
@@ -576,7 +601,7 @@
     </ItemContainer>
     <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="advancedpolymergun" category="Weapon" cargocontaineridentifier="metalcrate" allowasextracargo="true" tags="smallitem,weapon,gun,pistolitem,mountableweapon" Scale="0.25" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="secarmcab" />
     <Price baseprice="25000" maxavailable="5">
@@ -586,17 +611,17 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="250" requiresrecipe="false">
-      <RequiredSkill identifier="electrical" level="80" />
-      <RequiredSkill identifier="mechanical" level="80" />
-      <RequiredItem identifier="nanomechanicaltank" amount="4" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="100" />
+      <RequiredSkill identifier="mechanical" level="100" />
+      <RequiredItem identifier="nanomechanicaltank" amount="2" />
       <RequiredItem identifier="alienpowercell" />
       <RequiredItem identifier="dementonite" amount="5" />
       <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
     </Fabricate>
     <Deconstruct time="100">
       <Item identifier="nanomechanicaltank" amount="4" />
-      <Item identifier="scrap" amount="8" />
+      <Item identifier="scrap" amount="4" />
     </Deconstruct>
     <InventoryIcon texture="%ModDir%/Supernova.png" sourcerect="0,0,750,250" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Supernova.png" sourcerect="0,0,750,250" depth="0.25" origin="0.5,0.5" />
@@ -640,7 +665,7 @@
     </ItemContainer>
     <aitarget sightrange="500" soundrange="10000" fadeouttime="5" />
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="improvedancientweapon" category="Alien,Weapon" Tags="alien,smallitem,weldingequipment,cuttingequipment,tool,weapon,mountableweapon" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="engcab" secondary="divingcab" />
     <Price baseprice="25000">
@@ -650,9 +675,9 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="250" requiresrecipe="false">
-      <RequiredSkill identifier="electrical" level="50" />
-      <RequiredSkill identifier="mechanical" level="50" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
+      <RequiredSkill identifier="electrical" level="75" />
+      <RequiredSkill identifier="mechanical" level="75" />
       <RequiredItem identifier="nanomechanicaltank" amount="2" />
       <RequiredItem identifier="ancientweapon" />
       <RequiredItem identifier="dementonite" amount="5" />
@@ -660,8 +685,8 @@
       <RequiredItem identifier="fpgacircuit" amount="5" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" amount="2" />
-      <Item identifier="scrap" amount="8" />
+      <Item identifier="nanomechanicaltank" amount="4" />
+      <Item identifier="scrap" amount="4" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1875,104,58" />
     <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="0,1875,104,58" depth="0.55" />
@@ -697,7 +722,7 @@
       <Containable items="shapedchargecell" />
     </ItemContainer>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="husksymbiosisextract" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" RequireAimToUse="True" HitOnlyCharacters="true">
     <PreferredContainer primary="medcab" />
     <Price baseprice="50000">
@@ -712,7 +737,7 @@
     </Price>
     <Deconstruct time="50">
       <Item identifier="nanomechanicaltank" amount="2" />
-      <Item identifier="huskeggs" amount="3" />
+      <Item identifier="huskeggs" amount="4" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="0,186,38,70" depth="0.6" origin="0.5,0.5" />
@@ -732,7 +757,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="nanomechanicaltransplanter" scale="0.4" category="Medical,Equipment" tags="smallitem,geneticdevice,idcard,id_captain,id_engineer,id_mechanic,id_security,id_medic,id_assistant,wreck_id,wreck_admin,wreck_captain,wreck_engineer,wreck_mechanic,wreck_security,wreck_medic,id_outpostmanager,id_outpostsecurity,id_reactor,id_pirate,abandonedsecarmcab" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medcab" secondary="medcab" />
     <Price baseprice="50000">
@@ -742,7 +767,7 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="150" requiresrecipe="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
       <RequiredSkill identifier="electrical" level="100" />
       <RequiredSkill identifier="mechanical" level="100" />
       <RequiredSkill identifier="medical" level="100" />
@@ -793,7 +818,7 @@
     <StatusHUD drawhudwhenequipped="true" overlaycolor="250,150,50,50" range="10000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
     <StatusHUD drawhudwhenequipped="true" overlaycolor="50,50,50,50" debugwiring="true" showtexts="false" />
   </Item>
-  <!--    -->
+  <!--Item-->
   <Item name="" identifier="environmentalscanner" category="Equipment,Diving" Tags="smallitem,sonar,provocative,idcard,id_captain,id_engineer,id_mechanic,id_security,id_medic,id_assistant,wreck_id,wreck_admin,wreck_captain,wreck_engineer,wreck_mechanic,wreck_security,wreck_medic,id_outpostmanager,id_outpostsecurity,id_reactor,id_pirate,abandonedsecarmcab" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="divingcab" />
     <Price baseprice="12500" maxavailable="5">
@@ -803,7 +828,7 @@
       <Price storeidentifier="merchantmilitary" sold="false" />
       <Price storeidentifier="merchantmine" sold="false" />
     </Price>
-    <Fabricate suitablefabricators="fabricator" requiredtime="90" requiresrecipe="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false">
       <RequiredSkill identifier="electrical" level="75" />
       <RequiredSkill identifier="mechanical" level="75" />
       <RequiredItem identifier="nanomechanicaltank" amount="2" />
@@ -813,8 +838,8 @@
       <RequiredItem identifier="plastic" />
     </Fabricate>
     <Deconstruct time="100">
-      <Item identifier="nanomechanicaltank" amount="2" />
-      <Item identifier="scrap" amount="4" />
+      <Item identifier="nanomechanicaltank" amount="4" />
+      <Item identifier="scrap" amount="2" />
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="128,960,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="231,102,25,54" depth="0.55" origin="0.5,0.5" />

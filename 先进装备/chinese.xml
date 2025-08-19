@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infotexts language="Simplified Chinese" nowhitespace="true" translatedname="中文(简体)">
+  <entityname.undeadpotion>活死人药剂</entityname.undeadpotion>
+  <entitydescription.undeadpotion>便宜好用，可能有一点点小毛病</entitydescription.undeadpotion>
   <entityname.nanomechanicaltank>纳米机械罐</entityname.nanomechanicaltank>
   <entitydescription.nanomechanicaltank>一种更适合本地环境的生物改造科技，不要将它的拟态和普通饮料搞混了</entitydescription.nanomechanicaltank>
   <entityname.advancednanoarmor>先进护甲</entityname.advancednanoarmor>
@@ -40,5 +42,8 @@
   <Afflictiondescription.Regenerationenhancer>加速你的自体修复功能</Afflictiondescription.Regenerationenhancer>
   <Afflictionname.Vitalstabilizer>活体稳定剂</Afflictionname.Vitalstabilizer>
   <Afflictiondescription.Vitalstabilizer>因为能源分配的问题，无法执行更进一步的功能，但至少它能在关键时刻保护你</Afflictiondescription.Vitalstabilizer>
+  <Afflictionname.undead>活死人</Afflictionname.undead>
+  <Afflictiondescription.undead>你还不能死</Afflictiondescription.undead>
+  <displayname.cultivation>[itemname] (培育)</displayname.cultivation>
   <Visualaid>视觉辅助</Visualaid>
 </infotexts>

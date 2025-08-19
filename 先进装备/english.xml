@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="true" translatedname="English">
+  <entityname.undeadpotion>The living dead potion</entityname.undeadpotion>
+  <entitydescription.undeadpotion>Cheap and useful, maybe a little bug</entitydescription.undeadpotion>
   <entityname.nanomechanicaltank>Nanomechanical tank</entityname.nanomechanicaltank>
   <entitydescription.nanomechanicaltank>A bioengineering technology more suitable for the local environment. Don't confuse its mimicry with ordinary beverages.</entitydescription.nanomechanicaltank>
   <entityname.advancednanoarmor>Advanced armor</entityname.advancednanoarmor>
@@ -40,5 +42,8 @@
   <Afflictiondescription.Regenerationenhancer>Accelerate your self-repairing function.</Afflictiondescription.Regenerationenhancer>
   <Afflictionname.Vitalstabilizer>Vital Stabilizer</Afflictionname.Vitalstabilizer>
   <Afflictiondescription.Vitalstabilizer>No further functions can be performed due to energy distribution issues, but at least it will protect you in a critical moment</Afflictiondescription.Vitalstabilizer>
+  <Afflictionname.undead>Living dead</Afflictionname.undead>
+  <Afflictiondescription.undead>You can't die yet</Afflictiondescription.undead>
+  <displayname.cultivation>[itemname] (Cultivation)</displayname.cultivation>
   <Visualaid>Visual aid</Visualaid>
 </infotexts>
