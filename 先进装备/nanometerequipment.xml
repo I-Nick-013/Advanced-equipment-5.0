@@ -2,17 +2,16 @@
 <Items>
   <!--Item-->
   <Item name="" identifier="undeadpotion" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="32" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
-    <PreferredContainer primary="medcab" secondary="medcontainer"/>
-    <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="50" fabricationlimitmin="16" fabricationlimitmax="32"/>
+    <PreferredContainer primary="medcab" secondary="medcontainer" />
+    <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="50" fabricationlimitmin="16" fabricationlimitmax="32" />
     <InventoryIcon texture="Content/Items/Medical/Medicines.png" sourcerect="448,256,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="303,310,35,67" depth="0.6" origin="0.5,0.5" />
     <Body width="35" height="65" density="10.2" />
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <StatusEffect statuseffecttags="medical" type="OnUse" target="UseTarget" duration="30">
-        <Affliction identifier="undead" amount="500" /> 
+        <Affliction identifier="undead" amount="500" />
       </StatusEffect>
-      <StatusEffect type="OnUse" target="UseTarget">
-        <Conditional entitytype="eq Character"/>
+       <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
@@ -43,7 +42,7 @@
       <RequiredItem identifier="undeadpotion" amount="32" />
       <RequiredItem identifier="ethanol" amount="4" />
     </Fabricate>
-    <Fabricate suitablefabricators="fabricator" requiredtime="30"  displayname="cultivation" requiresrecipe="false" amount="4">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" displayname="cultivation" requiresrecipe="false" amount="4">
       <RequiredSkill identifier="medical" level="25" />
       <RequiredItem identifier="diversremains" />
       <RequiredItem identifier="nanomechanicaltank" />

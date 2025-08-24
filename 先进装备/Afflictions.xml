@@ -137,7 +137,7 @@
   </Affliction>
   <!--Affliction-->
   <Affliction name="" identifier="undead" type="talentbuff" isbuff="true" hideiconafterdelay="true" limbspecific="false" maxstrength="100" treatmentthreshold="100" iconcolors="50,50,50;100,100,100;150,150,150;200,200,200">
-    <Effect minstrength="0" maxstrength="100" strengthchange="-10" >
+    <Effect minstrength="0" maxstrength="100" strengthchange="-10">
       <StatusEffect target="Character">
         <Affliction identifier="drunknodebuffs" amount="0.5" />
       </StatusEffect>
